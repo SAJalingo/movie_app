@@ -13,8 +13,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.deepPurple,
+        ),
       ),
       home: const Home(),
     );
@@ -29,8 +30,29 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final _movieList = <String>[
+    'The Shawshank Redemption',
+    'The Godfather',
+    'The Dark Night',
+    'The Godfather:Part II',
+    'The Lord of the Rings: The Return of the King',
+    'Pulp Fiction',
+    'Schindlers List',
+    'Prison Break',
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(title: Text('Movie App')),
+      body: Center(
+        child: ListView.builder(
+          itemCount: _movieList.length,
+          itemBuilder: (context, index) {
+            return Text(_movieList[index]);
+          },
+        ),
+      ),
+    );
   }
 }
