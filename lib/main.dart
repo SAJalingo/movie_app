@@ -59,21 +59,24 @@ class _HomeState extends State<Home> {
           itemBuilder: (context, index) {
             final movie =
                 movieData.movieList[index];
-            return ListTile(
-              title: Text(
-                movie.title,
-              ),
-              subtitle: Text(movie.director),
-              trailing: Icon(Icons.sunny),
-              leading: CircleAvatar(
-                child: Text(movie.title[0]),
+            return Card(
+              child: ExpansionTile(
+                title: Text(movie.title),
+                subtitle: Text(
+                  'Director: ${movie.director}',
+                ),
               ),
             );
-            //Card(
-            //child: Center(
-            // child: Text(movies[index]),
-            // ),
-            //);
+            // return ListTile(
+            //   title: Text(
+            //     movie.title,
+            //   ),
+            //   subtitle: Text(movie.director),
+            //   trailing: Icon(Icons.sunny),
+            //   leading: CircleAvatar(
+            //     child: Text(movie.title[0]),
+            //   ),
+            // );
           },
         ),
       ),

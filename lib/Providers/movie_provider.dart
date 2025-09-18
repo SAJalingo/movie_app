@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/Utils/movieParser.dart';
+import 'package:movie_app/Utils/movie_parser.dart';
 import 'package:movie_app/models/movie.dart';
 
 class MovieProvider extends ChangeNotifier {
@@ -23,11 +23,9 @@ class MovieProvider extends ChangeNotifier {
       final jsonString =
           await DefaultAssetBundle.of(
             context,
-          ).loadString('assests/data/film.json');
+          ).loadString('assets/data/film.json');
 
-      final movies = MovieParser.parse(
-        jsonString,
-      );
+      final movies = MovieParser.parse(jsonString);
 
       _movieList = movies;
 
