@@ -19,33 +19,31 @@ class MovieCard extends StatelessWidget {
           'Director: ${movie.director}',
         ),
         leading: CircleAvatar(
-          child: Text(movie.title[0]),
+          backgroundImage: NetworkImage(
+            movie.images[0],
+          ),
+          // child: Text(movie.title[0]),
         ),
         children: [
           Container(
             alignment: Alignment.center,
-            padding: EdgeInsets.only(
-              left: 75,
-            ),
+            padding: EdgeInsets.only(left: 75),
             child: Column(
               children: [
                 RichText(
                   text: TextSpan(
-                    style:
-                        DefaultTextStyle.of(
-                          context,
-                        ).style,
+                    style: DefaultTextStyle.of(
+                      context,
+                    ).style,
                     children: [
                       TextSpan(
-                        text:
-                            'Released: ',
+                        text: 'Released: ',
                         style: Theme.of(context)
                             .textTheme
                             .labelLarge!
                             .copyWith(
                               fontWeight:
-                                  FontWeight
-                                      .bold,
+                                  FontWeight.bold,
                             ),
                       ),
                       TextSpan(
@@ -59,13 +57,10 @@ class MovieCard extends StatelessWidget {
                             .labelLarge!
                             .copyWith(
                               fontWeight:
-                                  FontWeight
-                                      .bold,
+                                  FontWeight.bold,
                             ),
                       ),
-                      TextSpan(
-                        text: movie.plot,
-                      ),
+                      TextSpan(text: movie.plot),
                     ],
                   ),
                 ),
@@ -77,13 +72,13 @@ class MovieCard extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
-                            MovieDetails(movie: movie,),
+                            MovieDetails(
+                              movie: movie,
+                            ),
                       ),
                     );
                   },
-                  child: Text(
-                    'Read More',
-                  ),
+                  child: Text('Read More'),
                 ),
               ],
             ),
