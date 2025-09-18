@@ -125,7 +125,7 @@ class _HomeState extends State<Home> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    MovieDetails(),
+                                    MovieDetails(movie: movie,),
                               ),
                             );
                           },
