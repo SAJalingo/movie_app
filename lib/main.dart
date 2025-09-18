@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/Providers/movie_provider.dart';
+import 'package:movie_app/pages/movie_details.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -84,11 +85,52 @@ class _HomeState extends State<Home> {
                                 ).style,
                             children: [
                               TextSpan(
-                                text: 'Released: ',style: Theme.of(context).textTheme.labelLarge!.copyWith(fontWeight:FontWeight.bold)
-                              ),TextSpan(
-                                text: movie.released,
-                              )
+                                text:
+                                    'Released: ',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .labelLarge!
+                                    .copyWith(
+                                      fontWeight:
+                                          FontWeight
+                                              .bold,
+                                    ),
+                              ),
+                              TextSpan(
+                                text:
+                                    '${movie.released}\n',
+                              ),
+                              TextSpan(
+                                text: 'Plot: ',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .labelLarge!
+                                    .copyWith(
+                                      fontWeight:
+                                          FontWeight
+                                              .bold,
+                                    ),
+                              ),
+                              TextSpan(
+                                text: movie.plot,
+                              ),
                             ],
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            //Take to the Movie Details screen
+                            //use navigator widget
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    MovieDetails(),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            'Read More',
                           ),
                         ),
                       ],
