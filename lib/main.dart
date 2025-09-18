@@ -38,21 +38,36 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   @override
-  Widget build(BuildContext context) {
-    final movies = Provider.of<MovieProvider>(
+  void initState() {
+    Provider.of<MovieProvider>(
       context,
-    ).loadMovies();
+      listen: false,
+    ).loadMovies(context);
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final movieData = Provider.of<MovieProvider>(
+      context,
+    );
     return Scaffold(
       appBar: AppBar(title: Text('Movie App')),
       body: Center(
         child: ListView.builder(
-          itemCount: movies.length,
+          itemCount: movieData.movieList.length,
           itemBuilder: (context, index) {
+            final movie =
+                movieData.movieList[index];
             return ListTile(
-              title: Text(movies[index]),
+              title: Text(
+                movie.title,
+              ),
               subtitle: Text('sub'),
               trailing: Icon(Icons.sunny),
-              leading: CircleAvatar(child: Text(movies[index][0]),),
+              leading: CircleAvatar(
+                child: Text(movie.title[0]),
+              ),
             );
             //Card(
             //child: Center(
