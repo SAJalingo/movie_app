@@ -63,7 +63,7 @@ class _HomeState extends State<Home> {
               title: Text(
                 movie.title,
               ),
-              subtitle: Text('sub'),
+              subtitle: Text(movie.director),
               trailing: Icon(Icons.sunny),
               leading: CircleAvatar(
                 child: Text(movie.title[0]),

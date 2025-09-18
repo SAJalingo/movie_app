@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/Utils/movieParser.dart';
+import 'package:movie_app/models/movie.dart';
 
 class MovieProvider extends ChangeNotifier {
   List<Movie> _movieList = [
